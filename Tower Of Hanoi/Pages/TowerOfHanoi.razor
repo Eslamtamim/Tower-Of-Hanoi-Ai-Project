@@ -1,4 +1,12 @@
 <div class="m-3">
+ <div class="position-absolute">
+        <h1>Logs</h1>
+        @foreach (var move in moves)
+        {
+            <div>Move: @move.from to @move.to </div>
+        }
+
+    </div>
 
     <div class="wrapper">
         <h2 class="title">Tower of Hanoi</h2>
@@ -43,7 +51,8 @@
             }
             else
             {
-                <p>Make A Move</p>
+                <div>Make A Move</div>
+                <div> &nbsp; </div>
             }
         }
 
@@ -64,16 +73,6 @@
         <button class="btn btn-danger" @onclick="()=> { OnInitializedAsync(); }">Reset Game</button>
     </div>
     
-
-    <div>
-        <h1>Logs</h1>
-        @foreach (var move in moves)
-        {
-            <div>Move: @move.from to @move.to </div>
-        }
-
-    </div>
-
 </div>
 
 @code {
@@ -123,6 +122,7 @@ new Stack<int>() };
                 from = -1,
                 to = -1
             };
+            moves = new();
         return base.OnInitializedAsync();
     }
     void TowerClick(int Index)
