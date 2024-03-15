@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.title {
+    margin-top: 90px;
+    margin-bottom: 100px;
+}
+
+.tower {
+    display: inline-block;
+    width: 12px;
+    height: 160px;
+    background-color: #393939;
+    margin: 0 70px;
+    position: relative;
+    border-radius: 10px;
+}
+
+.base {
+    display: inline-block;
+    border: 5px dotted #941717;
+    height: 30px;
+    /* border-radius: 10%; */
+    width: inherit;
+}
+
+.disk {
+    padding-right: 40%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 0.1px solid black;
+    border-radius: 8px;
+}
+

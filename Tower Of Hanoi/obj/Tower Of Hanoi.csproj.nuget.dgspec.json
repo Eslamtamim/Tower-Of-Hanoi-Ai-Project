@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\School Projects\\Tower Of Hanoi\\Tower Of Hanoi.csproj": {}
+    "E:\\School Projects\\Tower-Of-Hanoi-Ai-Project\\Tower Of Hanoi\\Tower Of Hanoi.csproj": {}
   },
   "projects": {
-    "E:\\School Projects\\Tower Of Hanoi\\Tower Of Hanoi.csproj": {
+    "E:\\School Projects\\Tower-Of-Hanoi-Ai-Project\\Tower Of Hanoi\\Tower Of Hanoi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\School Projects\\Tower Of Hanoi\\Tower Of Hanoi.csproj",
+        "projectUniqueName": "E:\\School Projects\\Tower-Of-Hanoi-Ai-Project\\Tower Of Hanoi\\Tower Of Hanoi.csproj",
         "projectName": "Tower Of Hanoi",
-        "projectPath": "E:\\School Projects\\Tower Of Hanoi\\Tower Of Hanoi.csproj",
+        "projectPath": "E:\\School Projects\\Tower-Of-Hanoi-Ai-Project\\Tower Of Hanoi\\Tower Of Hanoi.csproj",
         "packagesPath": "C:\\Users\\tame2\\.nuget\\packages\\",
-        "outputPath": "E:\\School Projects\\Tower Of Hanoi\\obj\\",
+        "outputPath": "E:\\School Projects\\Tower-Of-Hanoi-Ai-Project\\Tower Of Hanoi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tame2\\AppData\\Roaming\\NuGet\\NuGet.Config",

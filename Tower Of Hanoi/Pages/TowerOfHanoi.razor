@@ -1,0 +1,153 @@
+<div class="m-3">
+
+    <div class="wrapper">
+        <h2 class="title">Tower of Hanoi</h2>
+        <div class="d-flex justify-content-center gap-5">
+            @for (int i = 0; i < towers.Count; i++)
+            {
+                int temp = i;
+                <div @onclick="()=> TowerClick(temp)" class="d-inline-block" style="cursor: pointer;">
+                    <div class="tower" style="height: @(Math.Max(180,diskCount * 32))px;cursor: pointer;">
+                        @{
+                            int j = 0;
+                            foreach (var disk in towers[i].Reverse())
+                            {
+                                <div class="disk" style="
+                                            height: 20px;
+                                            background-color: @colors[disk-1];
+                                            width: @(30 + (disk-1) * 30)px;
+                                            margin-bottom: @(((diskCount - 1)*20)- (diskCount - j -1) * 20)px;">
+                                </div>
+                                j++;
+                            }
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <br>
+    <div class="d-flex flex-column align-items-center gap-3 justify-content-center ">
+        @{
+            if (FromTower != -1)
+            {
+                int peek = 0;
+                var con = towers[FromTower].TryPeek(out peek);
+                if (con)
+                {
+                    <div> Move: &nbsp; </div>
+                    <div class="disk"
+                        style="margin:-10px 0px 10px @(30 + (peek-1) * 30)px;padding-right: inherit;background-color: @colors[ peek-1]; width: @(30 + (peek-1) * 30)px; height: 20px; position: static;">
+                    </div>
+                }
+            }
+            else
+            {
+                <p>Make A Move</p>
+            }
+        }
+
+    </div>
+    <div class="d-flex flex-column justify-content-center align-content-center align-items-center">
+        <div class="MoveState"
+            style="color: @(MoveStateColor is not null ? MoveStateColor == true ? "green": "red"  :"black");">
+            @MoveState</div>
+        <div>Moves: @Moves</div>
+    </div>
+
+    <div class="d-flex justify-content-center m-4 gap-4">
+        <button class="btn btn-warning"
+            @onclick="()=> { diskCount = Math.Min(8,diskCount+1); OnInitializedAsync(); }">Add Disk</button>
+        <button class="btn btn-warning"
+            @onclick="()=> { diskCount = Math.Max(3,diskCount-1); OnInitializedAsync(); }">Remove Disk</button>
+        <button class="btn btn-danger" @onclick="()=> { OnInitializedAsync(); }">Reset Game</button>
+    </div>
+    <br>
+
+ @*    <div>
+        <h3>Instructions</h3>
+        <p>Click on the tower you want to move from, then click on the tower you want to move to.</p>
+        <p>Try to move all the disks to another tower. You can only move one disk at a time and a larger disk cannot be
+            placed on top of a smaller disk.</p>
+        <p>Good luck!</p>
+    </div>
+
+    <div>
+        <h3>Rules</h3>
+        <p>1. Only one disk can be moved at a time.</p>
+        <p>2. Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack.
+        </p>
+        <p>3. No disk may be placed on top of a smaller disk.</p>
+    </div>
+ *@
+
+</div>
+
+@code {
+    int diskCount = 5;
+    int Moves = 0;
+    string MoveState = "You haven't moved any disks yet.";
+    bool? MoveStateColor;
+    List<string> colors = new List<string> { "#f0ece2", "#dfd3c3", "#c7b198", "#596e79", "#0e2e3b","#f0ece2",
+"#dfd3c3","#c7b198", "#596e79", "#0e2e3b" };
+    @* List<string> colors = new List<string> {" #afc5ff ","#fcff82" ,"#ff9c6d" ,"#fd5959 ","#ff0000" ,"#ffa952 ","#2772db ","#ff5d9e"}; *@
+
+    List<Stack<int>> towers = new();
+
+    int FromTower = -1;
+    int ToTower = -1;
+
+
+    protected override Task OnInitializedAsync()
+    {
+
+        towers = new List<Stack<int>> {
+new Stack<int>(Enumerable.Range(1, diskCount).Reverse()),
+new Stack<int>(),
+new Stack<int>() };
+
+        MoveState = "You haven't moved any disks yet.";
+        MoveStateColor = null;
+        Moves = 0;
+        return base.OnInitializedAsync();
+    }
+    void TowerClick(int Index)
+    {
+
+        if (FromTower == -1)
+        {
+            FromTower = Index;
+        }
+        else
+        {
+            ToTower = Index;
+            if (FromTower != ToTower)
+            {
+                MoveDiskIfPossible(FromTower, ToTower);
+            }
+            FromTower = -1;
+            ToTower = -1;
+        }
+    }
+
+    bool MoveDiskIfPossible(int from, int to)
+    {
+        if (towers[from].Count == 0)
+        {
+            MoveState = "There are no disks to move from this tower.";
+            MoveStateColor = false;
+            return false;
+        }
+        if (towers[to].Count == 0 || towers[to].Peek() > towers[from].Peek())
+        {
+            towers[to].Push(towers[from].Pop());
+            MoveState = "You moved a disk from tower " + (from + 1) + " to tower " + (to + 1) + ".";
+            Moves++;
+            MoveStateColor = true;
+            return true;
+        }
+        MoveState = "You cannot move a larger disk on top of a smaller disk.";
+        MoveStateColor = false;
+        return false;
+    }
+}

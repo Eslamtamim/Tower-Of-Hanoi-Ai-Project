@@ -1,0 +1,31 @@
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\bin\Debug\net7.0\appsettings.Development.json
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\bin\Debug\net7.0\appsettings.json
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\bin\Debug\net7.0\Tower Of Hanoi.staticwebassets.runtime.json
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\bin\Debug\net7.0\Tower Of Hanoi.exe
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\bin\Debug\net7.0\Tower Of Hanoi.deps.json
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\bin\Debug\net7.0\Tower Of Hanoi.runtimeconfig.json
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\bin\Debug\net7.0\Tower Of Hanoi.dll
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\bin\Debug\net7.0\Tower Of Hanoi.pdb
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\Tower Of Hanoi.GeneratedMSBuildEditorConfig.editorconfig
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\Tower Of Hanoi.AssemblyInfoInputs.cache
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\Tower Of Hanoi.AssemblyInfo.cs
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\Tower Of Hanoi.csproj.CoreCompileInputs.cache
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\Tower Of Hanoi.MvcApplicationPartsAssemblyInfo.cache
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\Tower Of Hanoi.RazorAssemblyInfo.cache
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\Tower Of Hanoi.RazorAssemblyInfo.cs
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\staticwebassets\msbuild.Tower Of Hanoi.Microsoft.AspNetCore.StaticWebAssets.props
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\staticwebassets\msbuild.build.Tower Of Hanoi.props
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Tower Of Hanoi.props
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.Tower Of Hanoi.props
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\staticwebassets.pack.json
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\staticwebassets.build.json
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\staticwebassets.development.json
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\scopedcss\bundle\Tower Of Hanoi.styles.css
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\scopedcss\projectbundle\Tower Of Hanoi.bundle.scp.css
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\Tower Of Hanoi.dll
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\refint\Tower Of Hanoi.dll
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\Tower Of Hanoi.pdb
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\Tower Of Hanoi.genruntimeconfig.cache
+E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\ref\Tower Of Hanoi.dll
