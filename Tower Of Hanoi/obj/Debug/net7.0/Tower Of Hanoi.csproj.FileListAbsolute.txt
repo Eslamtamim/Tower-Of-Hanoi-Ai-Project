@@ -21,7 +21,6 @@ E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\sta
 E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\staticwebassets.build.json
 E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\staticwebassets.development.json
 E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
-E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
 E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\scopedcss\bundle\Tower Of Hanoi.styles.css
 E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\scopedcss\projectbundle\Tower Of Hanoi.bundle.scp.css
 E:\School Projects\Tower-Of-Hanoi-Ai-Project\Tower Of Hanoi\obj\Debug\net7.0\Tower Of Hanoi.dll
