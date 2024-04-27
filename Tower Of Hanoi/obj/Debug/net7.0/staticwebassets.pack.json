@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Tower Of Hanoi.bundle.scp.css"
     },
     {
+      "Id": "E:\\School Projects\\Tower-Of-Hanoi-Ai-Project\\Tower Of Hanoi\\wwwroot\\2024-03-16.png",
+      "PackagePath": "staticwebassets\\2024-03-16.png"
+    },
+    {
       "Id": "E:\\School Projects\\Tower-Of-Hanoi-Ai-Project\\Tower Of Hanoi\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
     },
@@ -59,6 +63,14 @@
     {
       "Id": "E:\\School Projects\\Tower-Of-Hanoi-Ai-Project\\Tower Of Hanoi\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "E:\\School Projects\\Tower-Of-Hanoi-Ai-Project\\Tower Of Hanoi\\wwwroot\\logo.png",
+      "PackagePath": "staticwebassets\\logo.png"
+    },
+    {
+      "Id": "E:\\School Projects\\Tower-Of-Hanoi-Ai-Project\\Tower Of Hanoi\\wwwroot\\tower.jpg",
+      "PackagePath": "staticwebassets\\tower.jpg"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Tower Of Hanoi.Microsoft.AspNetCore.StaticWebAssets.props",

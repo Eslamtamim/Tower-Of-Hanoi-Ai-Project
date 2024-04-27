@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NUC9DGVwJSn7ewlSycZnQKhpbZx+8+sZxfGIz6f965g=",
+  "Hash": "sHciZ1MJQyWGyAn5P8WUP7tBlsuKZ6vAvQSz/NxRJlA=",
   "Source": "Tower Of Hanoi",
   "BasePath": "_content/Tower Of Hanoi",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\School Projects\\Tower-Of-Hanoi-Ai-Project\\Tower Of Hanoi\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Tower Of Hanoi.bundle.scp.css"
+    },
+    {
+      "Identity": "E:\\School Projects\\Tower-Of-Hanoi-Ai-Project\\Tower Of Hanoi\\wwwroot\\2024-03-16.png",
+      "SourceId": "Tower Of Hanoi",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\School Projects\\Tower-Of-Hanoi-Ai-Project\\Tower Of Hanoi\\wwwroot\\",
+      "BasePath": "_content/Tower Of Hanoi",
+      "RelativePath": "2024-03-16.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\2024-03-16.png"
     },
     {
       "Identity": "E:\\School Projects\\Tower-Of-Hanoi-Ai-Project\\Tower Of Hanoi\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
@@ -287,6 +304,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "E:\\School Projects\\Tower-Of-Hanoi-Ai-Project\\Tower Of Hanoi\\wwwroot\\logo.png",
+      "SourceId": "Tower Of Hanoi",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\School Projects\\Tower-Of-Hanoi-Ai-Project\\Tower Of Hanoi\\wwwroot\\",
+      "BasePath": "_content/Tower Of Hanoi",
+      "RelativePath": "logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\logo.png"
+    },
+    {
+      "Identity": "E:\\School Projects\\Tower-Of-Hanoi-Ai-Project\\Tower Of Hanoi\\wwwroot\\tower.jpg",
+      "SourceId": "Tower Of Hanoi",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\School Projects\\Tower-Of-Hanoi-Ai-Project\\Tower Of Hanoi\\wwwroot\\",
+      "BasePath": "_content/Tower Of Hanoi",
+      "RelativePath": "tower.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\tower.jpg"
     }
   ]
 }

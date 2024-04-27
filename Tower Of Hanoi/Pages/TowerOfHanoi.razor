@@ -1,9 +1,12 @@
+@using Tower_Of_Hanoi.Data
+
+
 <div class="m-3">
- <div class="position-absolute">
+    <div class="position-absolute">
         <h1>Logs</h1>
-        @foreach (var move in moves)
+        @foreach (var move in HanoiTower.MovesStack)
         {
-            <div>Move: @move.from to @move.to </div>
+            <div>Move: @move.From to @move.To </div>
         }
 
     </div>
@@ -11,20 +14,20 @@
     <div class="wrapper">
         <h2 class="title">Tower of Hanoi</h2>
         <div class="d-flex justify-content-center gap-5">
-            @for (int i = 0; i < towers.Count; i++)
+            @for (var i = 0; i < HanoiTower.Towers.Count; i++)
             {
-                int temp = i;
-                <div @onclick="()=> TowerClick(temp)" class="d-inline-block" style="cursor: pointer;">
-                    <div class="tower" style="height: @(Math.Max(180,diskCount * 32))px;cursor: pointer;">
+                var temp = i;
+                <div @onclick="() => HanoiTower.TowerClick(temp)" class="d-inline-block" style="cursor: pointer;">
+                    <div class="tower" style="height: @(Math.Max(180, HanoiTower.DiskCount * 32))px;cursor: pointer;">
                         @{
-                            int j = 0;
-                            foreach (var disk in towers[i].Reverse())
+                            var j = 0;
+                            foreach (var disk in HanoiTower.Towers[i].Reverse())
                             {
                                 <div class="disk" style="
                                                     height: 20px;
-                                                    background-color: @colors[disk-1];
-                                                    width: @(30 + (disk-1) * 30)px;
-                                                    margin-bottom: @(((diskCount - 1)*20)- (diskCount - j -1) * 20)px;">
+                                                    background-color: @HanoiTower.Colors[disk - 1];
+                                                    width: @(30 + (disk - 1) * 30)px;
+                                                    margin-bottom: @(((HanoiTower.DiskCount - 1) * 20) - (HanoiTower.DiskCount - j - 1) * 20)px;">
                                 </div>
                                 j++;
                             }
@@ -37,15 +40,14 @@
     <br>
     <div class="d-flex flex-column align-items-center gap-3 justify-content-center ">
         @{
-            if (TempMove.from != -1)
+            if (HanoiTower.TempMove.From != -1)
             {
-                int peek = 0;
-                var con = towers[TempMove.from].TryPeek(out peek);
+                var con = HanoiTower.Towers[HanoiTower.TempMove.From].TryPeek(out var peek);
                 if (con)
                 {
                     <div> Move: &nbsp; </div>
                     <div class="disk"
-                        style="margin:-10px 0px 10px @(30 + (peek-1) * 30)px;padding-right: inherit;background-color: @colors[ peek-1]; width: @(30 + (peek-1) * 30)px; height: 20px; position: static;">
+                         style="margin:-10px 0 10px @(30 + (peek - 1) * 30)px;padding-right: inherit;background-color: @HanoiTower.Colors[peek - 1]; width: @(30 + (peek - 1) * 30)px; height: 20px; position: static;">
                     </div>
                 }
             }
@@ -58,132 +60,101 @@
 
     </div>
     <div class="d-flex flex-column justify-content-center align-content-center align-items-center">
-        <div class="MoveState"
-            style="color: @(MoveStateColor is not null ? MoveStateColor == true ? "green": "red"  :"black");">
-            @MoveState</div>
-        <div>Moves: @Moves</div>
+        <div class="HanoiTower.MoveState"
+             style="color: @(HanoiTower.MoveStateColor is not null ? HanoiTower.MoveStateColor == true ? "green" : "red" : "black");">
+            @HanoiTower.MoveState
+        </div>
+        <div>Moves: @HanoiTower.MovesCount</div>
+        <div>Depth: @_depth</div>
     </div>
 
     <div class="d-flex justify-content-center m-4 gap-4">
-        <button class="btn btn-dark" @onclick="()=> {StepBack(); }">Step Back</button>
+        <button class="btn btn-dark" @onclick="HanoiTower.StepBack">Step Back</button>
         <button class="btn btn-warning"
-            @onclick="()=> { diskCount = Math.Min(8,diskCount+1); OnInitializedAsync(); }">Add Disk</button>
+                @onclick="() => { HanoiTower.DiskCount = Math.Min(8, HanoiTower.DiskCount + 1); Init(HanoiTower.DiskCount); StateHasChanged(); }">
+            Add Disk
+        </button>
         <button class="btn btn-warning"
-            @onclick="()=> { diskCount = Math.Max(3,diskCount-1); OnInitializedAsync(); }">Remove Disk</button>
-        <button class="btn btn-danger" @onclick="()=> { OnInitializedAsync(); }">Reset Game</button>
+                @onclick="() => { HanoiTower.DiskCount = Math.Max(3, HanoiTower.DiskCount - 1); Init(HanoiTower.DiskCount); }">
+            Remove Disk
+        </button>
+        <button class="btn btn-danger" @onclick="() => { OnInitializedAsync(); }">Reset Game</button>
+        <button class="btn btn-outline-warning" @onclick="SolveUsingAStar">A*</button>
     </div>
-    
+
 </div>
 
 @code {
 
-
-    record Move()
-    {
-        public int from { get; set; }
-        public int to { get; set; }
-    };
-
-
-    int diskCount = 5;
-    int Moves = 0;
-    string MoveState = "You haven't moved any disks yet.";
-    bool? MoveStateColor;
-    List<string> colors = new List<string> { "#f0ece2", "#dfd3c3", "#c7b198", "#596e79", "#0e2e3b","#f0ece2",
-"#dfd3c3","#c7b198", "#596e79", "#0e2e3b" };
-    @* List<string> colors = new List<string> {" #afc5ff ","#fcff82" ,"#ff9c6d" ,"#fd5959 ","#ff0000" ,"#ffa952 ","#2772db
-","#ff5d9e"}; *@
-
-    List<Stack<int>> towers = new();
-
-
-    Stack<Move> moves = new();
-    Move TempMove = new()
-        {
-            from = -1,
-            to = -1
-        };
-
-
+    HanoiTower HanoiTower { get; set; } = new();
+    int _depth;
 
     protected override Task OnInitializedAsync()
     {
-
-        towers = new List<Stack<int>> {
-new Stack<int>(Enumerable.Range(1, diskCount).Reverse()),
-new Stack<int>(),
-new Stack<int>() };
-
-        MoveState = "You haven't moved any disks yet.";
-        MoveStateColor = null;
-        Moves = 0;
-        TempMove = new()
-            {
-                from = -1,
-                to = -1
-            };
-            moves = new();
+        Init();
         return base.OnInitializedAsync();
     }
-    void TowerClick(int Index)
-    {
 
-        if (TempMove.from == -1)
-        {
-            if (towers[Index].Count == 0)
-            {
-                MoveState = "There are no disks to move from this tower.";
-                MoveStateColor = false;
-                return;
-            }
-            TempMove.from = Index;
-        }
-        else
-        {
-            TempMove.to = Index;
-            if (TempMove.from != TempMove.to)
-            {
-                MoveDiskIfPossible(TempMove.from, TempMove.to);
-            }
-            TempMove.from = -1;
-            TempMove.to = -1;
-        }
+    async void Init(int? diskCount = 5, List<Stack<int>>? towers = null)
+    {
+        HanoiTower = new HanoiTower(diskCount);
+        await InvokeAsync(StateHasChanged);
     }
 
-    bool MoveDiskIfPossible(int from, int to)
+    async Task SolveUsingAStar()
     {
-        if (towers[from].Count == 0)
+        Node root = new(HanoiTower.Towers, null, null);
+        var path = await AStar_Search(root);
+        if (!path.Any()) return;
+        foreach (var move in path)
         {
-            MoveState = "There are no disks to move from this tower.";
-            MoveStateColor = false;
-            return false;
+            HanoiTower.MoveDiskIfPossible(move.From, move.To);
+            await InvokeAsync(StateHasChanged);
+            await Task.Delay(300);
+
         }
-        if (towers[to].Count == 0 || towers[to].Peek() > towers[from].Peek())
-        {
-            towers[to].Push(towers[from].Pop());
-            MoveState = "You moved a disk from tower " + (from + 1) + " to tower " + (to + 1) + ".";
-            Moves++;
-            MoveStateColor = true;
-            moves.Push(new Move() { from = from+1, to = to+1 });
-            return true;
-        }
-        MoveState = "You cannot move a larger disk on top of a smaller disk.";
-        MoveStateColor = false;
-        return false;
+        HanoiTower.MoveState = "Solved";
+        HanoiTower.MoveStateColor = true;
+        await InvokeAsync(StateHasChanged);
     }
 
-    void StepBack()
+    async Task<Stack<Move>> AStar_Search(Node root)
     {
-        if (moves.Count > 0)
+        var frontier = new PriorityQueue<Node, int>(new PriorityComparer<int>());
+        var hCost = root.TotalCost;
+        frontier.Enqueue(root, root.TotalCost);
+
+        var visitedStates = new HashSet<string>() { root.HashedState };
+
+        while (frontier.TryPeek(out var currentNode, out var _))
         {
-            var move = moves.Pop();
-            MoveDiskIfPossible(move.to - 1, move.from - 1);
-            TempMove = new()
+            frontier.Dequeue();
+
+            if (Node.IsGoal(currentNode!.State))
             {
-                from = -1,
-                to = -1
-            };
-            moves.Pop();
+                return currentNode.GeneratePath();
+            }
+
+            currentNode.GenerateSuccessors();
+            foreach (var successor in currentNode.Successors)
+            {
+                successor.Cost = currentNode.Cost - 1;
+                if (visitedStates.Contains(successor.HashedState)) continue;
+                visitedStates.Add(successor.HashedState);
+                frontier.Enqueue(successor, successor.TotalCost);
+            }
+            _depth++;
+            await InvokeAsync(StateHasChanged);
+        }
+        return new Stack<Move>();
+    }
+
+
+    class PriorityComparer<TPriority> : IComparer<TPriority>
+    {
+        public int Compare(TPriority x, TPriority y)
+        {
+            return Comparer<TPriority>.Default.Compare(y, x);
         }
     }
 }
