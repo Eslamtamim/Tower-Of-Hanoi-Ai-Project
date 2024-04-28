@@ -4,7 +4,7 @@ public class HanoiTower
 {
     public HanoiTower(int? diskCount = 5, List<Stack<int>>? towers = null)
     {
-        DiskCount = 5;
+        DiskCount = diskCount ?? 5;
         MovesCount = 0;
         MoveState = "You haven't moved any disks yet.";
         MoveStateColor = null;

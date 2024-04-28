@@ -71,7 +71,7 @@
     <div class="d-flex justify-content-center m-4 gap-4">
         <button class="btn btn-dark" @onclick="HanoiTower.StepBack">Step Back</button>
         <button class="btn btn-warning"
-                @onclick="() => { HanoiTower.DiskCount = Math.Min(8, HanoiTower.DiskCount + 1); Init(HanoiTower.DiskCount); StateHasChanged(); }">
+                @onclick="() => { HanoiTower.DiskCount = Math.Min(8, HanoiTower.DiskCount + 1); Init(HanoiTower.DiskCount); }">
             Add Disk
         </button>
         <button class="btn btn-warning"
@@ -111,10 +111,7 @@
             HanoiTower.MoveDiskIfPossible(move.From, move.To);
             await InvokeAsync(StateHasChanged);
             await Task.Delay(300);
-
         }
-        HanoiTower.MoveState = "Solved";
-        HanoiTower.MoveStateColor = true;
         await InvokeAsync(StateHasChanged);
     }
 
