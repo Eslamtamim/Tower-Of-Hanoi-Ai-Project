@@ -75,7 +75,6 @@ public:
         }
         return path;
     }
-
 };
 
 int heuristic_func(vector<stack<int>> state) {
@@ -86,9 +85,12 @@ int heuristic_func(vector<stack<int>> state) {
 stack<pair<int,int>> AStar_Search(Node *root) {
 
     priority_queue<pair<int, Node*>, vector<pair<int, Node*>>, greater<>> frontier;
+    
     int h_cost = heuristic_func(root->get_state());
     root->set_hCost(h_cost);
+    
     frontier.push({root->get_hCost(), root});
+    
     set<vector<stack<int>>> visited_states;
     visited_states.insert(root->get_state());
 

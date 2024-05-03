@@ -84,17 +84,11 @@ public class HanoiTower
             {
                 MoveState = "Solved.";
             }
-
             return true;
         }
 
         MoveState = "You cannot move a larger disk on top of a smaller disk.";
         MoveStateColor = false;
         return false;
-    }
-
-
-    public void MoveToGoal(Stack<Move> moves)
-    {
     }
 }

@@ -6,7 +6,6 @@ public class Node
 {
     public List<Stack<int>> State { get; set; }
     public string HashedState;
-    private int DiskCount { get; set; }
     public Node? Parent { get; set; }
     public List<Node> Successors { get; set; } = new();
     private Move? Move { get; set; }
@@ -19,11 +18,7 @@ public class Node
         State = state;
         Parent = parent;
         Move = move;
-        foreach (var tower in State)
-        {
-            DiskCount += tower.Count;
-        }
-
+       
         HashedState = GetHash(State);
     }
 
@@ -35,7 +30,6 @@ public class Node
             if (i == 0) cost -= State[i].Sum();
             else cost += State[i].Sum();
         }
-
         return cost;
     }
 
@@ -45,10 +39,6 @@ public class Node
         {
             for (var j = 0; j < 3; j++)
             {
-                //  if (i == j) continue;
-                //  if (Move?.From == j && Move?.To == i) continue;
-                // if (State[i].Any() || (!State[j].Any() && State[j].Peek() <= State[i].Peek())) continue;
-
                 var newState = new List<Stack<int>>();
                 foreach (var stack in State)
                 {
@@ -60,7 +50,6 @@ public class Node
 
                     newState.Add(newStack);
                 }
-
                 var res = Transfer(newState, new Move(i, j));
                 if (res is null) continue;
                 var newNode = new Node(newState, this, new Move(i, j));
@@ -77,7 +66,6 @@ public class Node
             state[action.To].Push(state[action.From].Pop());
             return state;
         }
-
         return null;
     }
 
@@ -90,7 +78,6 @@ public class Node
             path.Push(curr.Move!);
             curr = curr.Parent;
         }
-
         return path;
     }
 
